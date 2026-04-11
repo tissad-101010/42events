@@ -1,0 +1,16 @@
+:root {
+  --color-background: 255 255 255;
+  --color-surface: 248 250 252;
+  --color-primary: 37 99 235;
+  --color-danger: 220 38 38;
+  --color-foreground: 15 23 42;
+  --radius-base: 0.75rem;
+}
+
+.dark {
+  --color-background: 15 23 42;
+  --color-surface: 30 41 59;
+  --color-foreground: 248 250 252;
+  --color-primary: 147 51 234;
+  --color-danger: 239 68 68;
+}

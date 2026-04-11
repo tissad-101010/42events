@@ -1,0 +1,24 @@
+
+services:
+
+  frontend:
+    build: ./frontend
+    container_name: frontend
+    restart: always
+
+  backend:
+    build: ./backend
+    container_name: backend
+    restart: always
+    environment:
+      - NODE_ENV=production
+
+  nginx:
+    build: ./nginx
+    container_name: nginx
+    restart: always
+    ports:
+      - "80:80"
+    depends_on:
+      - frontend
+      - backend

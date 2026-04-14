@@ -9,13 +9,7 @@ app.get("/", (req, res) => {
   res.json({ message: "Hello from Express + TypeScript (nodenext)" });
 });
 
-// Example API route
-app.get("/api/events", (req, res) => {
-  res.json([
-    { id: 1, name: "Event A" },
-    { id: 2, name: "Event B" }
-  ]);
-});
+
 
 const PORT = 3000;
 

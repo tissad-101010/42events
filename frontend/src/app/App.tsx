@@ -1,17 +1,32 @@
-// import { useEffect, useState } from "react";
+import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 
-// type Event = {
-//   id: number;
-//   name: string;
-// };
+import LoginPage from "../pages/LoginPage.tsx";
+import CallbackPage from "../pages/CallbackPage.tsx";
+import HomePage from "../pages/HomePage.tsx";
+
+import ProtectedRoute from "../components/ProtectedRoute.tsx";
 
 export default function App() {
-
-
   return (
-    <div className="App">
-      <h1>Welcome to the Event App</h1>
+    <BrowserRouter>
+      <Routes>
+        {/* Public */}
+        <Route path="/login" element={<LoginPage />} />
+        <Route path="/auth/callback" element={<CallbackPage />} />
 
-    </div>
+        {/* Protected */}
+        <Route
+          path="/"
+          element={
+            <ProtectedRoute>
+              <HomePage />
+            </ProtectedRoute>
+          }
+        />
+
+        {/* fallback */}
+        <Route path="*" element={<Navigate to="/" />} />
+      </Routes>
+    </BrowserRouter>
   );
 }

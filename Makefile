@@ -2,7 +2,9 @@
 # VARIABLES
 # =========================
 
-COMPOSE=docker compose
+DOCKER=podman
+
+COMPOSE=$(DOCKER) compose
 
 FRONTEND=frontend
 BACKEND=backend
@@ -79,8 +81,8 @@ clean:
 	$(COMPOSE) down --volumes --remove-orphans
 
 fclean: clean
-	docker system prune -af
-	docker volume prune -f
+	$(DOCKER) system prune -af
+	$(DOCKER) volume prune -f
 
 
 # =========================
